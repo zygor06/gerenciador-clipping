@@ -1,95 +1,90 @@
 <!doctype html>
 <html lang="{{ app()->getLocale() }}">
     <head>
+        <!-- Required meta tags -->
         <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-        <title>Laravel</title>
+        <!-- Bootstrap CSS -->
+        <link rel="stylesheet" href="{{ asset('node_modules/bootstrap/compiled/bootstrap.css')}}">
 
-        <!-- Fonts -->
-        <link href="https://fonts.googleapis.com/css?family=Raleway:100,600" rel="stylesheet" type="text/css">
-
-        <!-- Styles -->
-        <style>
-            html, body {
-                background-color: #fff;
-                color: #636b6f;
-                font-family: 'Raleway', sans-serif;
-                font-weight: 100;
-                height: 100vh;
-                margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
-            }
-
-            .flex-center {
-                align-items: center;
-                display: flex;
-                justify-content: center;
-            }
-
-            .position-ref {
-                position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
-            }
-
-            .content {
-                text-align: center;
-            }
-
-            .title {
-                font-size: 84px;
-            }
-
-            .links > a {
-                color: #636b6f;
-                padding: 0 25px;
-                font-size: 12px;
-                font-weight: 600;
-                letter-spacing: .1rem;
-                text-decoration: none;
-                text-transform: uppercase;
-            }
-
-            .m-b-md {
-                margin-bottom: 30px;
-            }
-        </style>
+        <title>Gerenciador de clippings</title>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-                        <a href="{{ route('register') }}">Register</a>
-                    @endauth
-                </div>
-            @endif
 
-            <div class="content">
-                <div class="title m-b-md">
-                    Laravel
+        <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
+
+            <div class="container">
+
+                <a class="navbar-brand h1 mb-0" href="#">Gerenciador de Clippings</a>
+
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSite">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSite">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Inicio</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Notícias</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Criar +</a>
+                        </li>
+                    </ul>
+
+                    <form class="form-inline" action="">
+                        <input class="form-control mr-2" type="search" placeholder="buscar">
+                        <button class="btn btn-default" type="submit">Ok</button>
+                    </form>
                 </div>
 
-                <div class="links">
-                    <a href="https://laravel.com/docs">Documentation</a>
-                    <a href="https://laracasts.com">Laracasts</a>
-                    <a href="https://laravel-news.com">News</a>
-                    <a href="https://forge.laravel.com">Forge</a>
-                    <a href="https://github.com/laravel/laravel">GitHub</a>
+            </div>
+
+        </nav>
+
+        <div id="carouselSite" class="carousel slide" data-ride="carousel">
+
+            <ol class="carousel-indicators">
+                <li data-target="#carouselSite" data-slide-to="0" class="active"></li>
+                <li data-target="#carouselSite" data-slide-to="1"></li>
+                <li data-target="#carouselSite" data-slide-to="2"></li>
+            </ol>
+
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="https://aegischp.com/wp-content/uploads/military-header.jpg" alt="imagem" class="img-fluid d-block">
+
+                    <div class="carousel-caption d-none d-md-block">
+                        <h3>Secex Defesa</h3>
+                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="https://www.vavyskov.cz/sites/default/files/styles/slideshow/public/field/image/slide_08.jpg" alt="imagem" class="img-fluid d-block">
+                    <div class="carousel-caption">
+                        <h3>Segurança Publica</h3>
+                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                    </div>
+                </div>
+                <div class="carousel-item">
+                    <img src="http://aeroacademy.co.uk/wp-content/uploads/2015/11/military-2.jpg" alt="imagem" class="img-fluid d-block">
+                    <div class="carousel-caption">
+                        <h3>Defesa Nacional</h3>
+                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                    </div>
                 </div>
             </div>
+
         </div>
+
+
+        <!-- Optional JavaScript -->
+        <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+        <script src="{{asset('node_modules/jquery/dist/jquery.js')}}"></script>
+        <script src="{{asset('node_modules/popper.js/dist/umd/popper.js')}}"> </script>
+        <script src="{{asset('node_modules/bootstrap/dist/js/bootstrap.js')}}"></script>
     </body>
 </html>
