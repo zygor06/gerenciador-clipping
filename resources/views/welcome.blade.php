@@ -55,27 +55,69 @@
 
             <div class="carousel-inner">
                 <div class="carousel-item active">
-                    <img src="https://aegischp.com/wp-content/uploads/military-header.jpg" alt="imagem" class="img-fluid d-block">
+                    <img src="{{asset('img/slide1.png')}}" alt="imagem" class="img-fluid d-block">
 
                     <div class="carousel-caption d-none d-md-block">
                         <h3>Secex Defesa</h3>
-                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                        <p class="lead">Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="https://www.vavyskov.cz/sites/default/files/styles/slideshow/public/field/image/slide_08.jpg" alt="imagem" class="img-fluid d-block">
-                    <div class="carousel-caption">
+                    <img src="{{asset('img/slide2.png')}}" alt="imagem" class="img-fluid d-block">
+                    <div class="carousel-caption d-none d-md-block">
                         <h3>Segurança Publica</h3>
-                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                        <p class="lead">Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
                     </div>
                 </div>
                 <div class="carousel-item">
-                    <img src="http://aeroacademy.co.uk/wp-content/uploads/2015/11/military-2.jpg" alt="imagem" class="img-fluid d-block">
-                    <div class="carousel-caption">
+                    <img src="{{asset('img/slide3.png')}}" alt="imagem" class="img-fluid d-block">
+                    <div class="carousel-caption d-none d-md-block">
                         <h3>Defesa Nacional</h3>
-                        <p>Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
+                        <p class="lead">Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
                     </div>
                 </div>
+            </div>
+
+        </div>
+
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-12 text-center my-5">
+
+                    <h1 class="display-3">Lorem Ipsum dolor</h1>
+                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas leo non elit iaculis, sed varius magna vehicula. Morbi magna mauris, iaculis quis ultricies sed, gravida in massa.</p>
+
+                </div>
+
+            </div>
+
+            <div class="row">
+
+                <div class="col-3">
+
+                    <nav id="navbarVertical" class="navbar navbar-light bg-light">
+
+                        <nav class="nav nav-pills flex-column">
+
+                            <a class="nav-link" href="#item1">Cadastro</a>
+                            <a class="nav-link" href="#item2">Atualizar</a>
+                            <a class="nav-link" href="#item3">Deletar</a>
+
+                        </nav>
+
+                    </nav>
+
+                </div>
+
+                <div class="col-9">
+
+
+
+                </div>
+
             </div>
 
         </div>
