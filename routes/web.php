@@ -12,7 +12,10 @@
 */
 
 Route::get('/', function () {
-    return view('pages.home');
+
+    $clippings = 0;
+
+    return view('pages.home', compact('clippings'));
 });
 
 Route::get('tutorial', function(){
@@ -25,4 +28,8 @@ Route::get('criar', function(){
 
 Route::get('noticias', function(){
     return view('pages.noticias');
+});
+
+Route::get('info', function(){
+    return view('pages.info');
 });
