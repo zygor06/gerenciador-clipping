@@ -12,5 +12,17 @@
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('pages.home');
+});
+
+Route::get('tutorial', function(){
+   return view('pages.tutorial');
+});
+
+Route::get('criar', function(){
+    return view('pages.criar');
+});
+
+Route::get('noticias', function(){
+    return view('pages.noticias');
 });

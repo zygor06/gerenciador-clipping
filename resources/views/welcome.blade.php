@@ -33,6 +33,9 @@
                         <li class="nav-item">
                             <a class="nav-link" href="#">Criar +</a>
                         </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Tutorial</a>
+                        </li>
                     </ul>
 
                     <form class="form-inline" action="">
