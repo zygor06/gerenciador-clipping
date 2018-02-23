@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateTbClipping extends Migration
+class CreateClippingsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,14 +13,13 @@ class CreateTbClipping extends Migration
      */
     public function up()
     {
-        Schema::create('clipping', function (Blueprint $table) {
+        Schema::create('tb_clipping', function (Blueprint $table) {
             $table->increments('id');
 
-            $table->integer('numero');
-
-            $table->integer('ano');
-
             $table->date('data');
+            $table->integer('numero');
+            $table->integer('ano');
+            $table->string('autor');
 
             $table->timestamps();
         });
@@ -33,6 +32,6 @@ class CreateTbClipping extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('clipping');
+        Schema::dropIfExists('tb_clipping');
     }
 }
