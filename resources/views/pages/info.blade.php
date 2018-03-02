@@ -1,1 +1,3 @@
-<?php phpinfo();?>
+@extends('layouts.default')
+
+{{phpinfo()}}

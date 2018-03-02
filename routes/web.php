@@ -11,12 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-
-    $clippings = 0;
-
-    return view('pages.home', compact('clippings'));
-});
+Route::get('/', 'Site\SiteController@index');
 
 Route::get('tutorial', function(){
    return view('pages.tutorial');

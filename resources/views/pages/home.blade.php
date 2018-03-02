@@ -19,27 +19,34 @@
 
         <div class="row">
 
-            <div class="col-3">
+            <table class="table table-bordered">
+                <thead class="thead-inverse">
+                    <tr>
+                        <th>#</th>
+                        <th>Autor</th>
+                        <th>Numero</th>
+                        <th>Ano</th>
+                        <th>Data de Criação</th>
+                        <th></th>
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    @foreach($clippings as $clipping)
 
-                <nav id="navbarVertical" class="navbar navbar-light bg-light">
+                    <tr>
+                        <th scope="row">{{$clipping->id}}</th>
+                        <td>{{$clipping->autor}}</td>
+                        <td>{{$clipping->numero}}</td>
+                        <td>{{$clipping->ano}}</td>
+                        <td>{{$clipping->data}}</td>
+                        <td><a href="clipping/{{$clipping->id}}">Visualizar</a></td>
+                        <td><a href="clipping/edit/{{$clipping->id}}">Editar</a></td>
+                    </tr>
 
-                    <nav class="nav nav-pills flex-column">
-
-                        <a class="nav-link" href="#item1">Cadastro</a>
-                        <a class="nav-link" href="#item2">Atualizar</a>
-                        <a class="nav-link" href="#item3">Deletar</a>
-
-                    </nav>
-
-                </nav>
-
-            </div>
-
-            <div class="col-9">
-
-
-
-            </div>
+                    @endforeach
+                </tbody>
+            </table>
 
         </div>
 

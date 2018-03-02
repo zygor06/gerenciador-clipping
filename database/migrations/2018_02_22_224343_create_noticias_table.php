@@ -17,7 +17,7 @@ class CreateNoticiasTable extends Migration
             $table->increments('id');
 
             $table->string('titulo');
-            $table->string('descricao')->nullable();
+            $table->string('descricao', 1000)->nullable();
             $table->string('link');
             $table->string('imagem')->nullable();
             $table->integer('clipping_id')->unsigned();

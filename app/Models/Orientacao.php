@@ -7,5 +7,5 @@ use Illuminate\Database\Eloquent\Model;
 class Orientacao extends Model
 {
     //
-    private $table = 'tb_orientacao';
+    protected $table = 'tb_orientacao';
 }
