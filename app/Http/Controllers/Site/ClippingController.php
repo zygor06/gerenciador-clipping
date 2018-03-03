@@ -18,6 +18,11 @@ class ClippingController extends Controller
         return view('pages.criar');
     }
 
+    public function clipping(){
+        $clippings = Clipping::get();
+        return view('pages.clippings', ['clippings' => $clippings]);
+    }
+
     public function salvar(Request $request){
 
         $clipping = new Clipping();
@@ -85,16 +90,27 @@ class ClippingController extends Controller
     public function editar($id){
 
         $clipping = Clipping::findOrFail($id);
+        $orientacao = new Orientacao();
+        $orientacao = $orientacao->where('clipping_id', '=', $id);
 
-        return view('pages.criar', ['clipping' => $clipping]);
+        return view('pages.criar', [
+            'clipping' => $clipping,
+            'orientacao' => $orientacao
+            ]);
 
     }
 
     public function atualizar($id){
 
-        $clipping = Clipping::findOrFail($id);
+        return view('pages.criar');
 
-        return view('pages.criar', ['clipping' => $clipping]);
+    }
+
+    public function view($id){
+
+        $clipping = new FullClipping();
+
+        return view('layout.clipping', ['clipping' => $clipping]);
 
     }
 

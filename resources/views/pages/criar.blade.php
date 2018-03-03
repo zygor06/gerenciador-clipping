@@ -43,6 +43,12 @@
 
     </div>
 
+    @if(Request::is('*/edit/*'))
+
+        {{var_dump($orientacao)}}
+
+    @endif
+
 @stop
 
 @section('text-script')

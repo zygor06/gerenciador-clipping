@@ -17,7 +17,7 @@ Route::get('tutorial', function(){
    return view('pages.tutorial');
 });
 
-
+Route::get('clipping', 'Site\ClippingController@clipping');
 Route::get('clipping/criar', 'Site\ClippingController@criar');
 Route::get('clipping/edit/{id}', 'Site\ClippingController@editar');
 Route::get('clipping/view/{id}', 'Site\ClippingController@view');
