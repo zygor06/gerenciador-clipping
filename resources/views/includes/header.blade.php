@@ -14,10 +14,7 @@
                     <a class="nav-link" href="/">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/noticias">Notícias</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="/criar">Criar +</a>
+                    <a class="nav-link" href="/clipping/criar">Criar</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/tutorial">Tutorial</a>
