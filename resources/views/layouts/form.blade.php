@@ -1,69 +1,69 @@
 
 
 @if(Request::is('*/edit/*'))
-    {!! Form::model($clipping, ['method'=> 'PATCH','url' =>'clipping/atualizar']) !!}
+    {!! Form::model($clipping, ['method'=> 'PATCH','url' =>'clipping/'.$clipping->clipping->id]) !!}
 @else
     {!! Form::open(['url' => 'clipping/salvar']) !!}
 @endif
 
-{!! Form::input('text', 'clipping.autor', null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome do Autor']) !!}
+{!! Form::input('text', 'clipping.autor',  isset($clipping) ? $clipping->clipping->autor : null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome do Autor']) !!}
 
 <br />
 
 <div class="form-row">
     <div class="col">
-        {!! Form::input('text', 'clipping.ano', null, ['class' => 'form-control', 'placeholder' => 'Ano Ex: I']) !!}
+        {!! Form::input('text', 'clipping.ano', isset($clipping) ? $clipping->clipping->ano : null, ['class' => 'form-control', 'placeholder' => 'Ano Ex: I']) !!}
     </div>
     <div class="col">
-        {!! Form::input('text', 'clipping.numero', null, ['class' => 'form-control', 'placeholder' => 'Numero do clipping Ex: 6']) !!}
+        {!! Form::input('text', 'clipping.numero', isset($clipping) ? $clipping->clipping->numero : null, ['class' => 'form-control', 'placeholder' => 'Numero do clipping Ex: 6']) !!}
     </div>
 </div>
 <br/>
 <hr>
 
-<h3 class="display1 text-center">
-    {!! Form::label('noticia_1', 'Notícia 1') !!}
-</h3>
+@php
 
-{!! Form::input('text', 'clipping.noticia_titulo_1', '', ['class' => 'form-control', 'placeholder' => 'Titulo da noticia 1']) !!}
-{!! Form::input('text', 'clipping.noticia_link_1', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-{!! Form::input('text', 'clipping.noticia_imagem_1', '', ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
-<br>
-{!! Form::textarea('clipping.noticia_descricao_1', '', ['class' => 'form-control', 'id' => 'noticia-editor-1']) !!}
-<br />
+    $n_atual = 1;
+    $v_atual = 1;
 
-<h3 class="display1 text-center">
-    {!! Form::label('noticia_2', 'Notícia 2') !!}
-</h3>
+@endphp
 
-{!! Form::input('text', 'clipping.noticia_titulo_2', '', ['class' => 'form-control', 'placeholder' => 'Titulo da noticia 2']) !!}
-{!! Form::input('text', 'clipping.noticia_link_2', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-{!! Form::input('text', 'clipping.noticia_imagem_2', '', ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
-<br>
-{!! Form::textarea('clipping.noticia_descricao_2', '', ['class' => 'form-control', 'id' => 'noticia-editor-2']) !!}
-<br />
+@if(isset($clipping))
+    @foreach($clipping->noticias as $noticia)
 
-<h3 class="display1 text-center">
-    {!! Form::label('noticia_3', 'Notícia 3') !!}
-</h3>
+        <h3 class="display1 text-center">
+            {!! Form::label('noticia_'.$n_atual, 'Notícia '.$n_atual) !!}
+        </h3>
 
-{!! Form::input('text', 'clipping.noticia_titulo_3', '', ['class' => 'form-control', 'placeholder' => 'Titulo da noticia 3']) !!}
-{!! Form::input('text', 'clipping.noticia_link_3', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-{!! Form::input('text', 'clipping.noticia_imagem_3', '', ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
-<br>
-{!! Form::textarea('clipping.noticia_descricao_3', '', ['class' => 'form-control', 'id' => 'noticia-editor-3']) !!}
-<br />
+        {!! Form::input('text', 'clipping.noticia_titulo_'.$n_atual, $noticia->titulo, ['class' => 'form-control', 'placeholder' => 'Titulo da noticia '.$n_atual]) !!}
+        {!! Form::input('text', 'clipping.noticia_link_'.$n_atual, $noticia->link, ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
+        {!! Form::input('text', 'clipping.noticia_imagem_'.$n_atual, $noticia->imagem, ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
+        <br>
+        {!! Form::textarea('clipping.noticia_descricao_'.$n_atual, $noticia->descricao, ['class' => 'form-control', 'id' => 'noticia-editor']) !!}
+        <br />
 
-<h3 class="display1 text-center">
-    {!! Form::label('noticia_1', 'Notícia 4') !!}
-</h3>
+        @php
+            $n_atual ++;
+        @endphp
 
-{!! Form::input('text', 'clipping.noticia_titulo_4', '', ['class' => 'form-control', 'placeholder' => 'Titulo da noticia 4']) !!}
-{!! Form::input('text', 'clipping.noticia_link_4', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-{!! Form::input('text', 'clipping.noticia_imagem_4', '', ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
-<br>
-{!! Form::textarea('clipping.noticia_descricao_4', '', ['class' => 'form-control', 'id' => 'noticia-editor-4']) !!}
-<br />
+    @endforeach
+
+@else
+    @for($i = 1; $i < 5; $i++)
+
+        <h3 class="display1 text-center">
+            {!! Form::label('noticia_'.$i, 'Notícia '.$i) !!}
+        </h3>
+
+        {!! Form::input('text', 'clipping.noticia_titulo_'.$i, '', ['class' => 'form-control', 'placeholder' => 'Titulo da noticia '.$i]) !!}
+        {!! Form::input('text', 'clipping.noticia_link_'.$i, '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
+        {!! Form::input('text', 'clipping.noticia_imagem_'.$i, '', ['class' => 'form-control', 'placeholder' => 'Link da imagem']) !!}
+        <br>
+        {!! Form::textarea('clipping.noticia_descricao_'.$i, '', ['class' => 'form-control', 'id' => 'noticia-editor']) !!}
+        <br />
+
+    @endfor
+@endif
 
 <hr>
 
@@ -71,7 +71,7 @@
     {!! Form::label('orientacao', 'Orientações') !!}
 </h3>
 
-{!! Form::textarea('clipping.orientacao', '', ['class' => 'form-control', 'id' => 'orientacao-editor']) !!}
+{!! Form::textarea('clipping.orientacao', isset($clipping) ? $clipping->orientacoes->texto : null, ['class' => 'form-control', 'id' => 'orientacao-editor']) !!}
 
 <br />
 <hr>
@@ -79,7 +79,7 @@
 <h3 class="display1 text-center">
     {!! Form::label('orientacao', 'Legislações') !!}
 </h3>
-{!! Form::textarea('clipping.legislacao', '', ['class' => 'form-control', 'id' => 'legislacao-editor']) !!}
+{!! Form::textarea('clipping.legislacao', isset($clipping) ? $clipping->legislacoes->texto : null, ['class' => 'form-control', 'id' => 'legislacao-editor']) !!}
 
 <hr>
 
@@ -87,50 +87,36 @@
     {!! Form::label('', 'Veja também') !!}
 </h3>
 
-<div class="form-row mb-2">
-    <div class="col">
-        {!! Form::input('text', 'clipping.titulo_vt_1', '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
-    </div>
-    <div class="col">
-        {!! Form::input('text', 'clipping.link_vt_1', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-    </div>
-</div>
+@if(isset($clipping))
+    @foreach($clipping->veja_tambem as $vt)
+        <div class="form-row mb-2">
+            <div class="col">
+                {!! Form::input('text', 'clipping.titulo_vt_'.$v_atual, $vt->titulo, ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
+            </div>
+            <div class="col">
+                {!! Form::input('text', 'clipping.link_vt_'.$v_atual, $vt->link, ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
+            </div>
+        </div>
 
-<div class="form-row mb-2">
-    <div class="col">
-        {!! Form::input('text', 'clipping.titulo_vt_2', '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
-    </div>
-    <div class="col">
-        {!! Form::input('text', 'clipping.link_vt_2', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-    </div>
-</div>
+        @php
+            $v_atual ++;
+        @endphp
 
-<div class="form-row mb-2">
-    <div class="col">
-        {!! Form::input('text', 'clipping.titulo_vt_3', '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
-    </div>
-    <div class="col">
-        {!! Form::input('text', 'clipping.link_vt_3', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-    </div>
-</div>
+    @endforeach
+@else
+    @for($i = 1; $i < 6; $i++)
+        <div class="form-row mb-2">
+            <div class="col">
+                {!! Form::input('text', 'clipping.titulo_vt_'.$i, '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
+            </div>
+            <div class="col">
+                {!! Form::input('text', 'clipping.link_vt_'.$i, '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
+            </div>
+        </div>
+    @endfor
+@endif
 
-<div class="form-row mb-2">
-    <div class="col">
-        {!! Form::input('text', 'clipping.titulo_vt_4', '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
-    </div>
-    <div class="col">
-        {!! Form::input('text', 'clipping.link_vt_4', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-    </div>
-</div>
 
-<div class="form-row mb-2">
-    <div class="col">
-        {!! Form::input('text', 'clipping.titulo_vt_5', '', ['class' => 'form-control', 'placeholder' => 'Titulo da notícia']) !!}
-    </div>
-    <div class="col">
-        {!! Form::input('text', 'clipping.link_vt_5', '', ['class' => 'form-control', 'placeholder' => 'Link da notícia']) !!}
-    </div>
-</div>
 
 <hr>
 
@@ -138,9 +124,6 @@
 <div class="form-row mb-2">
     <div class="col">
         {!! Form::submit('Salvar', ['class' =>'form-control btn-success']) !!}
-    </div>
-    <div class="col">
-        <a href="{{url('clipping/')}}" target="_blank" class="form-control btn-primary text-center">Visualizar</a>
     </div>
 </div>
 

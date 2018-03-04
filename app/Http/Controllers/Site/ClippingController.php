@@ -7,8 +7,10 @@ use App\Models\Legislacao;
 use App\Models\Noticia;
 use App\Models\Orientacao;
 use App\Models\FullClipping;
+use DB;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
+use Mockery\Matcher\Not;
 use Redirect;
 use Session;
 
@@ -20,7 +22,7 @@ class ClippingController extends Controller
     }
 
     public function clipping(){
-        $clippings = Clipping::get();
+        $clippings = DB::table('tb_clipping')->orderBy('numero')->get();
         return view('pages.clippings', ['clippings' => $clippings]);
     }
 
@@ -123,20 +125,65 @@ class ClippingController extends Controller
 
     public function editar($id){
 
-        $clipping = Clipping::findOrFail($id);
-        $orientacao = new Orientacao();
-        $noticias= Noticia::all()->where('clipping_id', '=', $id);
+        $clipping = new FullClipping($id);
 
         return view('pages.criar', [
-            'clipping' => $clipping,
-            'noticias' => $noticias
+            'clipping' => $clipping
             ]);
 
     }
 
-    public function atualizar($id){
+    public function atualizar($id, Request $request){
 
-        return view('pages.criar');
+        $clipping = new FullClipping($id);
+        $clipping->clipping->autor = $request->clipping_autor;
+        $clipping->clipping->numero = $request->clipping_numero;
+        $clipping->clipping->ano = $request->clipping_ano;
+        $clipping->clipping->data = now();
+
+        $clipping->clipping->update();
+
+        $noticias = $clipping->noticias;
+
+        foreach($noticias as $nt){
+
+            $noticia = Noticia::findOrFail($nt->id);
+            $noticia->titulo = $request->clipping_noticia_titulo_1;
+            $noticia->descricao = $request->clipping_noticia_descricao_1;
+            $noticia->imagem = $request->clipping_noticia_imagem_1;
+            $noticia->link = $request->clipping_noticia_link_1;
+            $noticia->clipping_id = $clipping->clipping->id;
+
+            $noticia->update();
+        }
+
+        $orientacao = Orientacao::findOrFail($clipping->orientacoes->id);
+        $orientacao->texto = $request->clipping_orientacao;
+        $orientacao->clipping_id = $clipping->clipping->id;
+
+        $orientacao->update();
+
+        $legislacao = Legislacao::findOrFail($clipping->legislacoes->id);
+        $legislacao->texto = $request->clipping_legislacao;
+        $legislacao->clipping_id = $clipping->clipping->id;
+
+        $legislacao->update();
+
+        $veja_tambem = $clipping->veja_tambem;
+
+        foreach($veja_tambem as $vtbm){
+
+            $vt = Noticia::findOrFail($vtbm->id);
+            $vt->titulo = $request->clipping_titulo_vt_1;
+            $vt->link = $request->clipping_link_vt_1;
+            $vt->clipping_id = $clipping->clipping->id;
+
+            $vt->update();
+        }
+
+        Session::flash('mensagem_sucesso', 'Clipping atualizado com sucesso!');
+
+        return Redirect::to('clipping/edit/'.$id);
 
     }
 

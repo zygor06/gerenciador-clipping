@@ -11,13 +11,17 @@
         <div class="collapse navbar-collapse" id="navbarSite">
             <ul class="navbar-nav mr-auto">
                 <li class="nav-item">
-                    <a class="nav-link" href="/">Inicio</a>
+                    <a class="nav-link" href="{{url('/')}}">Inicio</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/clipping/criar">Criar</a>
+                    <a class="nav-link" href="{{url('clipping/criar')}}">Criar</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('clipping')}}">Clippings</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="/tutorial">Tutorial</a>
+                    <a class="nav-link" href="{{url('tutorial')}}">Tutorial</a>
                 </li>
             </ul>
 

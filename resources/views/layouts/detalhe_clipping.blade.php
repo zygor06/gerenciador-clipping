@@ -1,5 +1,9 @@
 @extends('layouts.clipping')
 
+@section('title')
+    {{'Clipping Nº '.$clipping->clipping->numero}}
+@stop
+
 @section('ano')
     {{$clipping->clipping->ano}}
 @stop
@@ -53,7 +57,7 @@
     @foreach($clipping->noticias as $noticia)
 
         <div class="conteudo">
-            <img src="{{$noticia->link}}" />
+            <img src="{{$noticia->imagem}}" />
             <h1>{{$noticia->titulo}}</h1>
             @php
                 echo $noticia->descricao

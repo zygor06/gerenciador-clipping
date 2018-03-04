@@ -8,9 +8,16 @@
 
             <div class="col-12 text-center my-5">
 
-                <h3 class="display-1">Adicionar um novo clipping</h3>
-                <p>Preencha o formulário abaixo para criar um novo clipping, e no final clique no botão visualizar.</p>
-                <p>Caso esteja com dificuldades, <a href="{{url('tutorial')}}">clique aqui</a> para ir para o tutorial</p>
+                @if(Request::is('*/edit/*'))
+                    <h3 class="display-1">Atualize o clipping</h3>
+                    <p>Preencha o formulário abaixo para atualizar um clipping existente, e no final clique no botão visualizar.</p>
+                    <p>Caso esteja com dificuldades, <a href="{{url('tutorial')}}">clique aqui</a> para ir para o tutorial</p>
+                @else
+                    <h3 class="display-1">Adicionar um novo clipping</h3>
+                    <p>Preencha o formulário abaixo para criar um novo clipping, e no final clique no botão visualizar.</p>
+                    <p>Caso esteja com dificuldades, <a href="{{url('tutorial')}}">clique aqui</a> para ir para o tutorial</p>
+                @endif
+
 
             </div>
 
@@ -22,7 +29,12 @@
 
                 <div class="card card-inverse">
                     <div class="card-header text-center" style="background-color: #353535;">
-                        <h3>Criar novo clipping</h3>
+                        @if(Request::is('*/edit/*'))
+                            <h3>Atualizar o clipping</h3>
+                        @else
+                            <h3>Criar novo clipping</h3>
+                        @endif
+
                     </div>
 
                     <div class="card-block">
@@ -74,37 +86,10 @@
                 placeholderText: 'Digite aqui as legislações'
             })
 
-            $('textarea#noticia-editor-1').froalaEditor({
+            $('textarea#noticia-editor').froalaEditor({
                 theme: 'dark',
                 zIndex: 2003,
-                charCounterMax: 140,
-                heightMin: 150,
-                heightMax: 200,
-                placeholderText: 'Digite aqui a descrição da notícia 1'
-            })
-
-            $('textarea#noticia-editor-2').froalaEditor({
-                theme: 'dark',
-                zIndex: 2003,
-                charCounterMax: 140,
-                heightMin: 150,
-                heightMax: 200,
-                placeholderText: 'Digite aqui a descrição da notícia 2'
-            })
-
-            $('textarea#noticia-editor-3').froalaEditor({
-                theme: 'dark',
-                zIndex: 2003,
-                charCounterMax: 140,
-                heightMin: 150,
-                heightMax: 200,
-                placeholderText: 'Digite aqui a descrição da notícia 3'
-            })
-
-            $('textarea#noticia-editor-4').froalaEditor({
-                theme: 'dark',
-                zIndex: 2003,
-                charCounterMax: 140,
+                charCounterMax: 150,
                 heightMin: 150,
                 heightMax: 200,
                 placeholderText: 'Digite aqui a descrição da notícia 4'

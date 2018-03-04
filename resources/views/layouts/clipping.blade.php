@@ -2,7 +2,7 @@
 <html>
 <head>
     <meta charset="utf-8">
-    <title>Layout Info Defesa e Segurança</title>
+    <title>@yield('title')</title>
     <link rel="stylesheet" type="text/css" href="{{asset('css/clipping.css')}}">
 </head>
 <body>
