@@ -33,8 +33,8 @@
                             <td>{{$clipping->numero}}</td>
                             <td>{{$clipping->ano}}</td>
                             <td>{{  date('d/m/Y', strtotime($clipping->data))  }}</td>
-                            <td><a href="clipping/{{$clipping->id}}">Visualizar</a></td>
-                            <td><a href="clipping/edit/{{$clipping->id}}">Editar</a></td>
+                            <td><a href="{{url('clipping/view/'.$clipping->id)}}">Visualizar</a></td>
+                            <td><a href="{{url('clipping/edit/'.$clipping->id)}}">Editar</a></td>
                         </tr>
 
                     @endforeach

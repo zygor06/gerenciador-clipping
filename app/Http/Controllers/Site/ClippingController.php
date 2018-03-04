@@ -6,6 +6,7 @@ use App\Models\Clipping;
 use App\Models\Legislacao;
 use App\Models\Noticia;
 use App\Models\Orientacao;
+use App\Models\FullClipping;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Redirect;
@@ -81,6 +82,39 @@ class ClippingController extends Controller
 
         $legislacao->save();
 
+        $veja_tambem_1 = new Noticia();
+        $veja_tambem_1->titulo = $request->clipping_titulo_vt_1;
+        $veja_tambem_1->link = $request->clipping_link_vt_1;
+        $veja_tambem_1->clipping_id = $clipping->id;
+
+        $veja_tambem_1->save();
+
+        $veja_tambem_2 = new Noticia();
+        $veja_tambem_2->titulo = $request->clipping_titulo_vt_2;
+        $veja_tambem_2->link = $request->clipping_link_vt_2;
+        $veja_tambem_2->clipping_id = $clipping->id;
+
+        $veja_tambem_2->save();
+
+        $veja_tambem_3 = new Noticia();
+        $veja_tambem_3->titulo = $request->clipping_titulo_vt_3;
+        $veja_tambem_3->link = $request->clipping_link_vt_3;
+        $veja_tambem_3->clipping_id = $clipping->id;
+        $veja_tambem_3->save();
+
+        $veja_tambem_4 = new Noticia();
+        $veja_tambem_4->titulo = $request->clipping_titulo_vt_4;
+        $veja_tambem_4->link = $request->clipping_link_vt_4;
+        $veja_tambem_4->clipping_id = $clipping->id;
+        $veja_tambem_4->save();
+
+        $veja_tambem_5 = new Noticia();
+        $veja_tambem_5->titulo = $request->clipping_titulo_vt_5;
+        $veja_tambem_5->link = $request->clipping_link_vt_5;
+        $veja_tambem_5->clipping_id = $clipping->id;
+        $veja_tambem_5->save();
+
+
         Session::flash('mensagem_sucesso', 'Clipping cadastrado com sucesso!');
 
         return Redirect::to('clipping/criar');
@@ -91,11 +125,11 @@ class ClippingController extends Controller
 
         $clipping = Clipping::findOrFail($id);
         $orientacao = new Orientacao();
-        $orientacao = $orientacao->where('clipping_id', '=', $id);
+        $noticias= Noticia::all()->where('clipping_id', '=', $id);
 
         return view('pages.criar', [
             'clipping' => $clipping,
-            'orientacao' => $orientacao
+            'noticias' => $noticias
             ]);
 
     }
@@ -108,9 +142,9 @@ class ClippingController extends Controller
 
     public function view($id){
 
-        $clipping = new FullClipping();
+        $clipping = new FullClipping($id);
 
-        return view('layout.clipping', ['clipping' => $clipping]);
+        return view('layouts.detalhe_clipping', ['clipping' => $clipping]);
 
     }
 

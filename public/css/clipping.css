@@ -1,0 +1,239 @@
+#header {
+    width: 21cm;
+    height: 4.5cm;
+    padding: 0;
+    margin-bottom: 15px;
+    background: rgb(68,84,106);
+}
+
+#titulo{
+    padding-top: 35px;
+    padding-left: 30px;
+    font-size: 40pt;
+    color:white;
+}
+
+#white-line{
+    border-bottom: solid 1px white;
+    padding-top: 5px;
+    width: 580px;
+}
+
+.info_titulo{
+    font-family: 'Segoe UI Light';
+}
+
+.defesa_seguranca_titulo{
+    font-family: 'Segoe UI';
+    font-weight: bold;
+}
+
+#dados_publicacao{
+    font-family: 'Calibri';
+    font-size: 13pt;
+    padding-left: 30px;
+    padding-top: 8px;
+    color:white;
+    text-align: left;
+}
+
+.header_secex{
+    font-family: 'Calibri';
+    font-size: 11pt;
+    font-weight: bold;
+    float:right;
+    display:inline;
+    color:white;
+    margin-top:-30px;
+    margin-right: 10px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+}
+
+.logo_tcu{
+    width: 40px;
+    float:right;
+    display:inline;
+    margin-top:-32px;
+    margin-right: 50px;
+}
+
+#main {
+    width: 14.5cm;
+    height: 21cm;
+    margin:0.02cm;
+    background: #fafafa;
+}
+
+.conteudo{
+    display:inline;
+    width: 6.9cm;
+    height:9.9cm;
+    float:left;
+    padding: 0.1cm;
+    background-color: white;
+}
+
+.conteudo img{
+    width: 6.7cm;
+    display: inline;
+    margin: 3px;
+    box-shadow: 0 10px 6px -6px #777;
+}
+
+.conteudo h1{
+    font-family: 'Calibri';
+    font-size: 15pt ;
+    font-weight: bold;
+    margin-top:-3px;
+    padding: 3px;
+    text-align: left;
+}
+
+.conteudo p{
+    margin-top: -10px;
+    font-family: 'Segoe UI';
+    font-size: 10pt;
+    text-align: justify;
+    text-justify: inter-word;
+    padding: 3px;
+}
+
+.conteudo a{
+    font-family: 'Calibri';
+    font-size: 11pt;
+    display: inline;
+}
+
+#direita {
+    width: 245px;
+    height: 21cm;
+    margin-right: 0.2cm;
+    float: right;
+    border-left:solid 1px rgb(132,151,176);
+}
+
+.conteudo-right{
+    margin-left: 0.2cm;
+    width: 235px;
+    color:black;
+}
+
+.conteudo-right h1{
+    height: 1.1cm;
+    line-height: 1.1cm;
+    text-align: center;
+    font-family: 'Segoe UI Light';
+    font-size: 15pt;
+    font-weight: 100;
+    text-transform: uppercase;
+    color:white;
+    background: rgb(68,84,106);
+}
+
+.conteudo-right p{
+    font-family: 'Segoe UI';
+    font-size: 10pt;
+    text-align: justify;
+    margin-right:3px;
+}
+
+.conteudo-right a{
+    color: rgb(67,133,191);
+}
+
+.vt{
+    height: 250px !important;
+    text-align: justify;
+}
+
+.pj{
+    height: 250px !important;
+}
+
+.vt a{
+    font-family: 'Calibri' !important;
+    font-size: 11pt !important;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.pj p{
+    font-size: 9pt !important;
+}
+
+#footer {
+    width: 21cm;;
+    height: 3.9cm;
+    padding: 0;
+    margin: 0 auto;
+    background: rgb(68,84,106);
+    color:white;
+    font-family: 'Arial';
+    font-weight: 100;
+    text-align: center;
+    font-size: 10pt;
+    float: bottom;
+    line-height: 25px;
+}
+
+#tcu_footer{
+    font-family: 'Arial';
+    font-size: 9pt;
+    float:right;
+    text-align: center;
+    font-weight: bold;
+    margin-top:-25px;
+    margin-right: 5px;
+}
+
+.logo_footer{
+    width: 40px;
+    float:right;
+    display:inline;
+    margin-top:-30px;
+    margin-right: 50px;
+}
+/* PAGE SIZE A4 */
+
+body {
+    background: rgb(204,204,204);
+}
+page {
+    background: white;
+    display: block;
+    margin: 0 auto;
+    margin-bottom: 0.5cm;
+    box-shadow: 0 0 0.5cm rgba(0,0,0,0.5);
+}
+page[size="A4"] {
+    width: 21cm;
+    height: 29.7cm;
+}
+page[size="A4"][layout="portrait"] {
+    width: 29.7cm;
+    height: 21cm;
+}
+page[size="A3"] {
+    width: 29.7cm;
+    height: 42cm;
+}
+page[size="A3"][layout="portrait"] {
+    width: 42cm;
+    height: 29.7cm;
+}
+page[size="A5"] {
+    width: 14.8cm;
+    height: 21cm;
+}
+page[size="A5"][layout="portrait"] {
+    width: 21cm;
+    height: 14.8cm;
+}
+@media print {
+    body, page {
+        margin: 0;
+        box-shadow: none;
+    }
+}

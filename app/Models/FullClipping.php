@@ -1,9 +1,12 @@
 <?php
 
+namespace App\Models;
+
 use App\Models\Legislacao;
 use App\Models\Clipping;
 use App\Models\Noticia;
 use App\Models\Orientacao;
+use DB;
 
 class FullClipping{
 
@@ -16,10 +19,10 @@ class FullClipping{
     public function __construct($id){
 
         $this->clipping = Clipping::findOrFail($id);
-        $this->orientacoes = Orientacao::all()->where('clipping_id', '=', $id);
-        $this->legislacoes = Legislacao::all()->where('clipping_id', '=', $id);
-        $this->noticias = Noticia::all()->where('clipping_id', '=', $id)->where('imagem', 'IS NOT', 'null');
-        $this->veja_tambem = Noticia::all()->where('clipping_id', '=', $id)->where('imagem', '=', 'null');
+        $this->orientacoes = DB::table('tb_orientacao')->where('clipping_id', $id)->first();
+        $this->legislacoes = DB::table('tb_legislacao')->where('clipping_id', $id)->first();
+        $this->noticias = DB::table('tb_noticia')->where('clipping_id', $id)->where('imagem', '<>', 'null')->get();
+        $this->veja_tambem = DB::table('tb_noticia')->where('clipping_id', $id)->whereNull('imagem')->get();
 
     }
 
