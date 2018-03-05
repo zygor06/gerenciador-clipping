@@ -39,7 +39,9 @@
 
                     <div class="card-block">
 
-                        @if(Session::has('mensagem_sucesso'))
+                        @if(Session::has('mensagem_sucesso') && Session::has('clipping_id'))
+                            <div class="alert alert-success">{{Session::get('mensagem_sucesso')}} - <a target="_blank" href="{{url('clipping/view/' . Session::get('clipping_id'))}}">Visualizar</a></div>
+                        @elseif(Session::has('mensagem_sucesso'))
                             <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
                         @endif
 
@@ -67,7 +69,7 @@
             $('textarea#orientacao-editor').froalaEditor({
                 theme: 'dark',
                 zIndex: 2003,
-                charCounterMax: 140,
+                charCounterMax: 320,
                 heightMin: 150,
                 heightMax: 200,
                 placeholderText: 'Digite aqui as orientações',
@@ -80,7 +82,7 @@
             $('textarea#legislacao-editor').froalaEditor({
                 theme: 'dark',
                 zIndex: 2003,
-                charCounterMax: 140,
+                charCounterMax: 320,
                 heightMin: 150,
                 heightMax: 200,
                 placeholderText: 'Digite aqui as legislações'
@@ -89,10 +91,10 @@
             $('textarea#noticia-editor').froalaEditor({
                 theme: 'dark',
                 zIndex: 2003,
-                charCounterMax: 150,
+                charCounterMax: 240,
                 heightMin: 150,
                 heightMax: 200,
-                placeholderText: 'Digite aqui a descrição da notícia 4'
+                placeholderText: 'Digite aqui a descrição da notícia'
             })
         });
     </script>

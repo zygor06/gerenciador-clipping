@@ -32,7 +32,7 @@ class ClippingController extends Controller
         $clipping->autor = $request->clipping_autor;
         $clipping->numero = $request->clipping_numero;
         $clipping->ano = $request->clipping_ano;
-        $clipping->data = now();
+        $clipping->data = $request->clipping_data;
 
         $clipping->save();
 
@@ -98,23 +98,30 @@ class ClippingController extends Controller
 
         $veja_tambem_2->save();
 
-        $veja_tambem_3 = new Noticia();
-        $veja_tambem_3->titulo = $request->clipping_titulo_vt_3;
-        $veja_tambem_3->link = $request->clipping_link_vt_3;
-        $veja_tambem_3->clipping_id = $clipping->id;
-        $veja_tambem_3->save();
+        if(isset($request->clipping_titulo_vt_3)){
+            $veja_tambem_3 = new Noticia();
+            $veja_tambem_3->titulo = $request->clipping_titulo_vt_3;
+            $veja_tambem_3->link = $request->clipping_link_vt_3;
+            $veja_tambem_3->clipping_id = $clipping->id;
+            $veja_tambem_3->save();
+        }
 
-        $veja_tambem_4 = new Noticia();
-        $veja_tambem_4->titulo = $request->clipping_titulo_vt_4;
-        $veja_tambem_4->link = $request->clipping_link_vt_4;
-        $veja_tambem_4->clipping_id = $clipping->id;
-        $veja_tambem_4->save();
 
-        $veja_tambem_5 = new Noticia();
-        $veja_tambem_5->titulo = $request->clipping_titulo_vt_5;
-        $veja_tambem_5->link = $request->clipping_link_vt_5;
-        $veja_tambem_5->clipping_id = $clipping->id;
-        $veja_tambem_5->save();
+        if(isset($request->clipping_titulo_vt_4)) {
+            $veja_tambem_4 = new Noticia();
+            $veja_tambem_4->titulo = $request->clipping_titulo_vt_4;
+            $veja_tambem_4->link = $request->clipping_link_vt_4;
+            $veja_tambem_4->clipping_id = $clipping->id;
+            $veja_tambem_4->save();
+        }
+
+        if(isset($request->clipping_titulo_vt_5)) {
+            $veja_tambem_5 = new Noticia();
+            $veja_tambem_5->titulo = $request->clipping_titulo_vt_5;
+            $veja_tambem_5->link = $request->clipping_link_vt_5;
+            $veja_tambem_5->clipping_id = $clipping->id;
+            $veja_tambem_5->save();
+        }
 
 
         Session::flash('mensagem_sucesso', 'Clipping cadastrado com sucesso!');
@@ -133,29 +140,39 @@ class ClippingController extends Controller
 
     }
 
-    public function atualizar($id, Request $request){
+    public function atualizar($id, Request $r){
+
+        $request = $r;
 
         $clipping = new FullClipping($id);
         $clipping->clipping->autor = $request->clipping_autor;
         $clipping->clipping->numero = $request->clipping_numero;
         $clipping->clipping->ano = $request->clipping_ano;
-        $clipping->clipping->data = now();
+        $clipping->clipping->data = $request->clipping_data;
+        //$clipping->clipping->data = now();
 
         $clipping->clipping->update();
 
+        ////////////////////  NOTICIAS   ///////////////////////////////////////////////////////////////////////////////
+
         $noticias = $clipping->noticias;
+
+        $atual = 1;
 
         foreach($noticias as $nt){
 
             $noticia = Noticia::findOrFail($nt->id);
-            $noticia->titulo = $request->clipping_noticia_titulo_1;
-            $noticia->descricao = $request->clipping_noticia_descricao_1;
-            $noticia->imagem = $request->clipping_noticia_imagem_1;
-            $noticia->link = $request->clipping_noticia_link_1;
+            $noticia->titulo = $request->input('clipping_noticia_titulo_' . $atual);
+            $noticia->descricao = $request->input('clipping_noticia_descricao_' . $atual);
+            $noticia->imagem = $request->input('clipping_noticia_imagem_' . $atual);
+            $noticia->link = $request->input('clipping_noticia_link_' . $atual);
             $noticia->clipping_id = $clipping->clipping->id;
 
             $noticia->update();
+            $atual++;
         }
+
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
         $orientacao = Orientacao::findOrFail($clipping->orientacoes->id);
         $orientacao->texto = $request->clipping_orientacao;
@@ -163,28 +180,37 @@ class ClippingController extends Controller
 
         $orientacao->update();
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         $legislacao = Legislacao::findOrFail($clipping->legislacoes->id);
         $legislacao->texto = $request->clipping_legislacao;
         $legislacao->clipping_id = $clipping->clipping->id;
 
         $legislacao->update();
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+        $atual = 1;
         $veja_tambem = $clipping->veja_tambem;
 
         foreach($veja_tambem as $vtbm){
 
             $vt = Noticia::findOrFail($vtbm->id);
-            $vt->titulo = $request->clipping_titulo_vt_1;
-            $vt->link = $request->clipping_link_vt_1;
+            $vt->titulo = $request->input('clipping_titulo_vt_' . $atual);
+            $vt->link = $request->input('clipping_link_vt_' . $atual);
             $vt->clipping_id = $clipping->clipping->id;
 
             $vt->update();
+
+            $atual ++;
         }
 
+        ////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
         Session::flash('mensagem_sucesso', 'Clipping atualizado com sucesso!');
+        Session::flash('clipping_id', $id);
 
-        return Redirect::to('clipping/edit/'.$id);
-
+        return Redirect::to('clipping/criar');
     }
 
     public function view($id){
@@ -194,5 +220,57 @@ class ClippingController extends Controller
         return view('layouts.detalhe_clipping', ['clipping' => $clipping]);
 
     }
+
+    /*public function verificarCampos(Request $r = null, $id = null):bool{
+
+        if($id == null){
+            if(!isset($r->clipping_autor) ||
+                !isset($r->clipping_numero) ||
+                !isset($r->clipping_noticia_titulo_1) ||
+                !isset($r->clipping_noticia_descricao_1) ||
+                !isset($r->clipping_noticia_imagem_1) ||
+                !isset($r->clipping_noticia_link_1) ||
+                !isset($r->clipping_noticia_titulo_2) ||
+                !isset($r->clipping_noticia_descricao_2) ||
+                !isset($r->clipping_noticia_imagem_2) ||
+                !isset($r->clipping_noticia_link_2) ||
+                !isset($r->clipping_noticia_titulo_3) ||
+                !isset($r->clipping_noticia_descricao_3) ||
+                !isset($r->clipping_noticia_imagem_3) ||
+                !isset($r->clipping_noticia_link_3) ||
+                !isset($r->clipping_noticia_titulo_4) ||
+                !isset($r->clipping_noticia_descricao_4) ||
+                !isset($r->clipping_noticia_imagem_4) ||
+                !isset($r->clipping_noticia_link_4) ||
+                !isset($r->clipping_orientacao) ||
+                !isset($r->clipping_legislacao) ||
+                !isset($r->clipping_titulo_vt_1) ||
+                !isset($r->clipping_link_vt_1) ||
+                !isset($r->clipping_titulo_vt_2) ||
+                !isset($r->clipping_link_vt_2) ||
+                !isset($r->clipping_titulo_vt_3) ||
+                !isset($r->clipping_link_vt_3) ||
+                !isset($r->clipping_titulo_vt_4) ||
+                !isset($r->clipping_link_vt_4) ||
+                !isset($r->clipping_titulo_vt_5) ||
+                !isset($r->clipping_link_vt_5)){
+
+                return false;
+
+            }else{
+                return true;
+            }
+        }else{
+
+            $clipping = new FullClipping($id);
+
+            if(!isset($clipping->clipping->ano)){
+                return false;
+            }else{
+                return true;
+            }
+        }
+    }*/
+
 
 }

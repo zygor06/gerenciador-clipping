@@ -37,7 +37,12 @@
 @stop
 
 @section('numero')
-    {{$clipping->clipping->numero}}
+    @if($clipping->clipping->numero < 10)
+        {{'0'.$clipping->clipping->numero}}
+    @else
+        $clipping->clipping->numero
+    @endif
+
 @stop
 
 @section('legislacoes')
@@ -60,9 +65,9 @@
             <img src="{{$noticia->imagem}}" />
             <h1>{{$noticia->titulo}}</h1>
             @php
-                echo $noticia->descricao
+                echo substr($noticia->descricao, 0, -4) . " ... "
             @endphp
-            <a href="{{$noticia->link}}" target="blank">Leia +</a>
+            <a href="{{$noticia->link}}" target="blank">Leia +</a></p>
         </div>
 
     @endforeach

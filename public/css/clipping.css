@@ -141,6 +141,18 @@
 
 .conteudo-right a{
     color: rgb(67,133,191);
+    font-size: 9pt;
+}
+
+.conteudo img{
+    float: left;
+    width:  6.7cm;
+    height: 170px;
+    background-position: 50% 50%;
+    background-repeat:   no-repeat;
+    background-size:     cover;
+    /*box-shadow: 0 10px 6px -6px #777;*/
+    margin: 3px;
 }
 
 .vt{
@@ -154,7 +166,7 @@
 
 .vt a{
     font-family: 'Calibri' !important;
-    font-size: 11pt !important;
+    font-size: 9pt !important;
     display: block;
     margin-bottom: 10px;
 }
