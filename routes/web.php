@@ -28,3 +28,7 @@ Route::patch('clipping/{id}', 'Site\ClippingController@atualizar');
 Route::get('info', function(){
     return view('pages.info');
 });
+
+Route::resource('noticias', 'Site\NoticiaController');
+Route::post('noticias/store', 'Site\NoticiaController@store');
+Route::delete('noticias/delete/{id}', 'Site\NoticiaController@delete');

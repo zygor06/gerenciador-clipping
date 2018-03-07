@@ -13,3 +13,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/froala-editor/2.7.5/js/froala_editor.pkgd.min.js"></script>
 
 <script src="{{asset('js/script.js')}}"></script>
+
+<script>
+    $(".deletar").on("submit", function(){
+        return confirm("Você quer realmente deletar este item?");
+    });
+</script>

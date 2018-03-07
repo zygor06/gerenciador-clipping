@@ -16,19 +16,16 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('clipping/criar')}}">Criar</a>
                 </li>
-
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('clipping')}}">Clippings</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{{url('noticias')}}">Pesquisa de Notícias</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('tutorial')}}">Tutorial</a>
                 </li>
             </ul>
-
-            <form class="form-inline" action="">
-                <input class="form-control mr-2" type="search" placeholder="buscar">
-                <button class="btn btn-default" type="submit">Ok</button>
-            </form>
         </div>
 
     </div>
