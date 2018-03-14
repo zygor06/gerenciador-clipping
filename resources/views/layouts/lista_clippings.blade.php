@@ -21,6 +21,9 @@
                         <th class="text-right">Data de Criação</th>
                         <th></th>
                         <th></th>
+                        @auth
+                            <th></th>
+                        @endauth
                     </tr>
                     </thead>
                     <tbody>
@@ -33,6 +36,9 @@
                             <td>{{  date('d/m/Y', strtotime($clipping->data))  }}</td>
                             <td class="text-center"><a target="_blank" href="{{url('clipping/view/'.$clipping->id)}}">Visualizar</a></td>
                             <td class="text-center"><a href="{{url('clipping/edit/'.$clipping->id)}}">Editar</a></td>
+                            @auth
+                                <td class="text-center"><a href="{{url('clipping/delete/'.$clipping->id)}}">Excluir</a></td>
+                            @endauth
                         </tr>
 
                     @endforeach

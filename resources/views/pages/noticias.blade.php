@@ -29,9 +29,11 @@
                                     <label for="seguranca_{{$loop->index}}">
                                         {{$seguranca->texto}}
                                     </label>
-                                    {!! Form::open(['method' => 'DELETE', 'url' => 'noticias/delete/' . $seguranca->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
-                                    <button type="submit" class="float-right btn btn-danger">Excluir</button>
-                                    {!! Form::close() !!}
+                                    @auth
+                                        {!! Form::open(['method' => 'DELETE', 'url' => 'noticias/delete/' . $seguranca->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
+                                        <button type="submit" class="float-right btn btn-danger">Excluir</button>
+                                        {!! Form::close() !!}
+                                    @endauth
                                 </div>
                             @endforeach
 
@@ -53,9 +55,11 @@
                                     <label for="defesa_{{$loop->index}}">
                                         {{$defesa->texto}}
                                     </label>
-                                    {!! Form::open(['method' => 'DELETE', 'url' => 'noticias/delete/' . $defesa->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
-                                    <button type="submit" class="float-right btn btn-danger">Excluir</button>
-                                    {!! Form::close() !!}
+                                    @auth
+                                        {!! Form::open(['method' => 'DELETE', 'url' => 'noticias/delete/' . $defesa->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
+                                        <button type="submit" class="float-right btn btn-danger">Excluir</button>
+                                        {!! Form::close() !!}
+                                    @endauth
                                 </div>
                             @endforeach
                         </div>

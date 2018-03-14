@@ -32,3 +32,9 @@ Route::get('info', function(){
 Route::resource('noticias', 'Site\NoticiaController');
 Route::post('noticias/store', 'Site\NoticiaController@store');
 Route::delete('noticias/delete/{id}', 'Site\NoticiaController@delete');
+Auth::routes();
+
+Route::get('repositorio', 'Site\NoticiaController@links');
+Route::get('repositorio/criar', 'Site\NoticiaController@criar_link');
+Route::post('repositorio/salvar', 'Site\NoticiaController@salvar_link');
+Route::delete('repositorio/delete/{id}', 'Site\NoticiaController@deletar_link');

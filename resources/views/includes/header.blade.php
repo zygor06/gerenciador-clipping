@@ -23,10 +23,41 @@
                     <a class="nav-link" href="{{url('noticias')}}">Pesquisa de Notícias</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="{{url('tutorial')}}">Tutorial</a>
+                    <a class="nav-link" href="{{url('repositorio')}}">Repositório de Notícias</a>
                 </li>
             </ul>
+
+            <ul class="navbar-nav navbar-right">
+                <!-- Authentication Links -->
+                @guest
+                    <li class="nav-item">
+                        <a class="nav-link" href="{{ route('login') }}">Login</a>
+                    </li>
+                    <li class="ml-4 nav-item">
+                        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
+                    </li>
+                @else
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle nav-link" data-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true">
+                            {{ Auth::user()->name }} <span class="caret"></span>
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a class="btn" href="{{ route('logout') }}" onclick="event.preventDefault(); document.getElementById('logout-form').submit();">
+                                    Sair
+                                </a>
+                                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                                    {{ csrf_field() }}
+                                </form>
+                            </li>
+                        </ul>
+                    </li>
+                @endguest
+            </ul>
         </div>
+
+
 
     </div>
 

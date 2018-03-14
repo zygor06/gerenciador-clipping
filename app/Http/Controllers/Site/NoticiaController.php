@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers\Site;
 
+use App\Models\Links;
 use App\Models\Noticia;
 use App\Models\PesquisaNoticia;
 use DB;
@@ -106,4 +107,35 @@ class NoticiaController extends Controller
 
         return Redirect::to('noticias');
     }
+
+    public function links(){
+
+        $links = DB::table('links')->orderByDesc('data')->get();
+
+        return view('pages.repositorio', ['links' => $links]);
+    }
+
+    public function criar_link(){
+        return view('pages.criar_link');
+    }
+
+    public function deletar_link($id){
+        $link = Links::findOrFail($id);
+        $link->delete();
+
+        return Redirect::to('repositorio');
+    }
+
+    public function salvar_link(Reques0t $r){
+
+        $link = new Links();
+        $link->titulo = $r->titulo;
+        $link->link = $r->link;
+        $link->data = $r->data;
+        $link->save();
+
+        Redirect::to('repositorio');
+
+    }
+
 }
