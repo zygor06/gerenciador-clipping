@@ -46,7 +46,7 @@ class OrientacoesController extends Controller
 
         $orientacao->save();
 
-        return Redirect::to('orientacoes');
+        return Redirect::to('orientacoes/criar');
     }
 
     public function deletar($id){

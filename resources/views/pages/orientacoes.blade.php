@@ -17,7 +17,7 @@
 
                         <a href="{{url('orientacoes/criar')}}" class="btn btn-primary float-right mb-3">Adicionar +</a>
 
-                        <table class="table table-bordered text-right">
+                        <table class="table table-sm">
                             <thead class="thead-inverse">
                             <tr>
                                 @guest
@@ -35,8 +35,10 @@
                             </thead>
                             <tbody>
                             @foreach($orientacoes as $orientacao)
-
-                                <tr>
+                                @php
+                                    $cor = (App\Models\Clipping::findOrFail($orientacao->clipping_id)->numero % 2 == 1) ? '#F4F6F9' : '#FFFFFF';
+                                @endphp
+                                <tr style="background-color: {{$cor}};">
                                     @guest
                                         <td class="text-center col-md-3" scope="row">{{App\Models\Tipo::findOrFail($orientacao->tipo)->nome}}</td>
                                         <td class="text-left col-md-7"><a href="{{$orientacao->link}}" target="_blank">{{$orientacao->titulo}}</a></td>
