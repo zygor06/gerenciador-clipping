@@ -19,13 +19,24 @@
                 <li class="nav-item">
                     <a class="nav-link" href="{{url('clipping')}}">Clippings</a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('noticias')}}">Pesquisa de Notícias</a>
+
+
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        Gerenciador de Conteúdo
+                    </a>
+                    <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <a class="dropdown-item" href="{{url('noticias')}}">Pesquisa de Notícias</a>
+                        <a class="dropdown-item" href="{{url('repositorio')}}">Repositório de Notícias</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="{{url('orientacoes')}}">Orientações</a>
+                        <a class="dropdown-item" href="{{url('processos')}}">Processos Julgados</a>
+                    </div>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="{{url('repositorio')}}">Repositório de Notícias</a>
-                </li>
+
             </ul>
+
+
 
             <ul class="navbar-nav navbar-right">
                 <!-- Authentication Links -->

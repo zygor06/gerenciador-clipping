@@ -40,7 +40,7 @@
     @if($clipping->clipping->numero < 10)
         {{'0'.$clipping->clipping->numero}}
     @else
-        $clipping->clipping->numero
+        {{$clipping->clipping->numero}}
     @endif
 
 @stop

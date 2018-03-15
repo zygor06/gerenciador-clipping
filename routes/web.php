@@ -38,3 +38,10 @@ Route::get('repositorio', 'Site\NoticiaController@links');
 Route::get('repositorio/criar', 'Site\NoticiaController@criar_link');
 Route::post('repositorio/salvar', 'Site\NoticiaController@salvar_link');
 Route::delete('repositorio/delete/{id}', 'Site\NoticiaController@deletar_link');
+
+Route::get('orientacoes', 'Site\OrientacoesController@index');
+Route::get('orientacoes/criar', 'Site\OrientacoesController@criar');
+Route::post('orientacoes/salvar', 'Site\OrientacoesController@salvar');
+Route::delete('orientacoes/delete/{id}', 'Site\OrientacoesController@deletar');
+
+

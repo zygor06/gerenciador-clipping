@@ -17,9 +17,6 @@
     <div class="col">
         {!! Form::number('clipping.numero', isset($clipping) ? $clipping->clipping->numero : null, ['class' => 'form-control', 'placeholder' => 'Numero do clipping Ex: 6', 'required' => 'true']) !!}
     </div>
-    <div class="col">
-        {!! Form::date('clipping.data', isset($clipping) ? $clipping->clipping->data : null, ['class' => 'form-control']) !!}
-    </div>
 </div>
 <br/>
 <hr>

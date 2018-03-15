@@ -126,7 +126,7 @@ class NoticiaController extends Controller
         return Redirect::to('repositorio');
     }
 
-    public function salvar_link(Reques0t $r){
+    public function salvar_link(Request $r){
 
         $link = new Links();
         $link->titulo = $r->titulo;
@@ -134,7 +134,7 @@ class NoticiaController extends Controller
         $link->data = $r->data;
         $link->save();
 
-        Redirect::to('repositorio');
+        return Redirect::to('repositorio');
 
     }
 
