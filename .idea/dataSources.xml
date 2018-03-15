@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
-    <data-source source="LOCAL" name="db_clipping@localhost" uuid="6ea0f6f6-8fdf-4849-bfc4-ed6d8584a5bd">
+    <data-source source="LOCAL" name="db_clipping@localhost" uuid="0eb8adc8-3123-4d70-b49a-d10ecf3244b3">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>

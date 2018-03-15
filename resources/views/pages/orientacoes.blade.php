@@ -45,10 +45,10 @@
                                         <td class="text-center col-md-2">{{App\Models\Clipping::findOrFail($orientacao->clipping_id)->numero}}</td>
                                     @endguest
                                     @auth
-                                        <td class="text-center col-md-3" scope="row">{{$clipping->numero}}</td>
-                                        <td class="text-left col-md-5">{{$clipping->autor}}</td>
-                                        <td class="text-center col-md-2">{{$clipping->ano}}</td>
-                                        <td class="text-center col-md-2"><a href="{{url('clipping/delete/'.$clipping->id)}}">Excluir</a></td>
+                                        <td class="text-center col-md-3" scope="row">{{App\Models\Tipo::findOrFail($orientacao->tipo)->nome}}</td>
+                                        <td class="text-left col-md-5"><a href="{{$orientacao->link}}" target="_blank">{{$orientacao->titulo}}</a></td>
+                                        <td class="text-center col-md-2">{{App\Models\Clipping::findOrFail($orientacao->clipping_id)->numero}}</td>
+                                        <td class="text-center col-md-2"><a href="{{url('orientacoes/deletar/'.$orientacao->id)}}">Excluir</a></td>
                                     @endauth
                                 </tr>
 

@@ -30,7 +30,6 @@
                         <a class="dropdown-item" href="{{url('repositorio')}}">Repositório de Notícias</a>
                         <div class="dropdown-divider"></div>
                         <a class="dropdown-item" href="{{url('orientacoes')}}">Orientações</a>
-                        <a class="dropdown-item" href="{{url('processos')}}">Processos Julgados</a>
                     </div>
                 </li>
 
@@ -43,9 +42,6 @@
                 @guest
                     <li class="nav-item">
                         <a class="nav-link" href="{{ route('login') }}">Login</a>
-                    </li>
-                    <li class="ml-4 nav-item">
-                        <a class="nav-link" href="{{ route('register') }}">Registrar</a>
                     </li>
                 @else
                     <li class="dropdown">
