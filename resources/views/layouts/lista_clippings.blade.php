@@ -12,6 +12,12 @@
 
                 <a href="{{url('clipping/criar')}}" class="btn btn-primary float-right mb-3">Adicionar +</a>
 
+                @if(Session::has('mensagem_sucesso') && Session::has('clipping_id'))
+                    <div class="alert alert-success">{{Session::get('mensagem_sucesso')}} - <a target="_blank" href="{{url('clipping/view/' . Session::get('clipping_id'))}}">Visualizar</a></div>
+                @elseif(Session::has('mensagem_sucesso'))
+                    <div class="alert alert-success">{{Session::get('mensagem_sucesso')}}</div>
+                @endif
+
                 <table class="table table-bordered table-sm text-right">
                     <thead class="thead-inverse">
                     <tr>

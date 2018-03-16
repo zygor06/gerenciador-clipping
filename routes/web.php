@@ -22,6 +22,7 @@ Route::get('clipping/criar', 'Site\ClippingController@criar');
 Route::get('clipping/edit/{id}', 'Site\ClippingController@editar');
 Route::get('clipping/view/{id}', 'Site\ClippingController@view');
 Route::post('clipping/visualizar', 'Site\ClippingController@visualizar');
+Route::patch('clipping/visualizar', 'Site\ClippingController@visualizar');
 Route::post('clipping/salvar', 'Site\ClippingController@salvar');
 Route::patch('clipping/{id}', 'Site\ClippingController@atualizar');
 Route::delete('clipping/delete/{id}', 'Site\ClippingController@deletar');

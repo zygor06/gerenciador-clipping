@@ -3,7 +3,7 @@
 @if(Request::is('*/edit/*'))
     {!! Form::model($clipping, ['method'=> 'PATCH','url' =>'clipping/'.$clipping->clipping->id]) !!}
 @else
-    {!! Form::open(['url' => 'clipping/salvar', 'target' => '_blank']) !!}
+    {!! Form::open(['url' => 'clipping/salvar']) !!}
 @endif
 
 {!! Form::input('text', 'clipping.autor',  isset($clipping) ? $clipping->clipping->autor : null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome do Autor', 'required' => 'true', 'maxlength'=> 255]) !!}
@@ -138,6 +138,6 @@
         {!! Form::submit('Salvar', ['class' =>'form-control btn-success', 'value' => '']) !!}
     </div>
     <div class="col">
-        <button class="form-control btn btn-primary" type="submit" name="action" formaction="{{url('clipping/visualizar')}}"  formnovalidate>Visualizar</button>
+        <button class="form-control btn btn-primary" type="submit" name="action" formtarget="_blank" formaction="{{url('clipping/visualizar')}}"  formnovalidate>Visualizar</button>
     </div>
 </div>

@@ -117,7 +117,7 @@ class ClippingController extends Controller
         }
 
         Session::flash('mensagem_sucesso', 'Clipping cadastrado com sucesso!');
-        return Redirect::to('clipping/criar');
+        return Redirect::to('clipping');
     }
 
     public function visualizar(Request $request){
@@ -280,7 +280,7 @@ class ClippingController extends Controller
         Session::flash('mensagem_sucesso', 'Clipping atualizado com sucesso!');
         Session::flash('clipping_id', $id);
 
-        return Redirect::to('clipping/criar');
+        return Redirect::to('clipping');
     }
 
     public function view($id){
