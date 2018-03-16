@@ -57,7 +57,7 @@
                                     </label>
                                     @auth
                                         {!! Form::open(['method' => 'DELETE', 'url' => 'noticias/delete/' . $defesa->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
-                                        <button type="submit" class="float-right btn btn-danger">Excluir</button>
+                                            <button type="submit" class="float-right btn btn-danger">Excluir</button>
                                         {!! Form::close() !!}
                                     @endauth
                                 </div>

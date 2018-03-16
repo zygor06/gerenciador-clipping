@@ -26,4 +26,22 @@ class FullClipping{
 
     }
 
+    public function deletar(){
+        try {
+
+            foreach ($this->noticias as  $noticia) {
+                Noticia::findOrFail($noticia->id)->delete();
+            }
+            foreach ($this->veja_tambem as $vt){
+                Noticia::findOrFail($vt->id)->delete();
+            }
+
+            Orientacao::findOrFail($this->orientacoes->id)->delete();
+            Legislacao::findOrFail($this->legislacoes->id)->delete();
+            $this->clipping->delete();
+        } catch (\Exception $e) {
+            echo "Erro ao tentar deletar o clipping de número" . $this->clipping->numero;
+        }
+    }
+
 }

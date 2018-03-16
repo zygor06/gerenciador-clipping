@@ -18,12 +18,21 @@
                             <input name="titulo" type="text" class="form-control" id="inputAddress" required="true" placeholder="Informe o título da notícia">
                         </div>
                         <div class="form-group">
-                            <label for="inputAddress">Link da Notícia</label>
+                            <label for="link">Link da Notícia</label>
                             <input name="link" type="text" class="form-control mb-3" id="inputAddress" required="true" placeholder="Informe o link da pesquisa">
+                            <label for="data">Data da notícia</label>
                             {!! Form::date('data', isset($clipping) ? $clipping->clipping->data : null, ['class' => 'form-control', 'required']) !!}
                         </div>
-
-
+                        <div class="form-row">
+                            <div class="form-group col-md-4">
+                                <label for="inputState">Categoria</label>
+                                <select name="tipo" id="inputState" class="form-control">
+                                    <option selected>Escolher...</option>
+                                    <option value="seg">Segurança Pública</option>
+                                    <option value="def">Defesa Nacional</option>
+                                </select>
+                            </div>
+                        </div>
 
                         <button type="submit" class="btn btn-primary">Inserir link</button>
                         {!! Form::close() !!}

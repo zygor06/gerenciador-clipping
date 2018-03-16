@@ -21,8 +21,10 @@ Route::get('clipping', 'Site\ClippingController@clipping');
 Route::get('clipping/criar', 'Site\ClippingController@criar');
 Route::get('clipping/edit/{id}', 'Site\ClippingController@editar');
 Route::get('clipping/view/{id}', 'Site\ClippingController@view');
+Route::post('clipping/visualizar', 'Site\ClippingController@visualizar');
 Route::post('clipping/salvar', 'Site\ClippingController@salvar');
 Route::patch('clipping/{id}', 'Site\ClippingController@atualizar');
+Route::delete('clipping/delete/{id}', 'Site\ClippingController@deletar');
 
 
 Route::get('info', function(){
@@ -38,6 +40,7 @@ Route::get('repositorio', 'Site\NoticiaController@links');
 Route::get('repositorio/criar', 'Site\NoticiaController@criar_link');
 Route::post('repositorio/salvar', 'Site\NoticiaController@salvar_link');
 Route::delete('repositorio/delete/{id}', 'Site\NoticiaController@deletar_link');
+Route::get('repositorio/deletar_existente', 'Site\NoticiaController@deletar_links_publicados');
 
 Route::get('orientacoes', 'Site\OrientacoesController@index');
 Route::get('orientacoes/criar', 'Site\OrientacoesController@criar');

@@ -18,6 +18,7 @@ class CreateOrientacoesRascunhosTable extends Migration
             $table->string('titulo');
             $table->string('link');
             $table->integer('tipo');
+            $table->integer('status');
             $table->integer('clipping_id');
 
             $table->foreign('tipo')->references('id')->on('tipo');

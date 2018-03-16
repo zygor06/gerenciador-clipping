@@ -37,6 +37,7 @@ class OrientacoesController extends Controller
         $orientacao = new OrientacoesRascunho();
         $orientacao->titulo = $r->titulo;
         $orientacao->link = $r->link;
+        $orientacao->status = 1;
 
         $tipo = DB::table('tipos')->where('nome', $r->tipo)->get();
         $clipping = DB::table('tb_clipping')->where('numero', $r->numero)->get();
@@ -46,10 +47,15 @@ class OrientacoesController extends Controller
 
         $orientacao->save();
 
-        return Redirect::to('orientacoes/criar');
+        return Redirect::to('orientacoes');
     }
 
     public function deletar($id){
+
+        $orientacao = OrientacoesRascunho::findOrFail($id);
+        $orientacao->delete();
+
+        return Redirect::to('orientacoes');
 
     }
 }

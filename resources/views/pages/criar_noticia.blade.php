@@ -27,7 +27,7 @@
                                     </select>
                                 </div>
                             </div>
-                            <button type="submit" class="btn btn-primary">Inserir termo</button>
+                            <button type="submit" class="btn btn-primary">Inserir link</button>
                         {!! Form::close() !!}
                     </div>
                 </div>

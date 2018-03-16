@@ -29,7 +29,7 @@
              @yield('orientacoes')
         </div>
         <div class="conteudo-right pj">
-            <h1>Legislacoes</h1>
+            <h1>Deliberações</h1>
             @yield('legislacoes')
         </div>
         <div class="conteudo-right vt">

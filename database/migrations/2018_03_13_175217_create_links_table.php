@@ -17,6 +17,7 @@ class CreateLinksTable extends Migration
             $table->increments('id');
             $table->string('titulo')->nullable();
             $table->string('link');
+            $table->string('tipo');
             $table->date('data');
             $table->timestamps();
         });

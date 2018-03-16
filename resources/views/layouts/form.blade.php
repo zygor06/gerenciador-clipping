@@ -3,7 +3,7 @@
 @if(Request::is('*/edit/*'))
     {!! Form::model($clipping, ['method'=> 'PATCH','url' =>'clipping/'.$clipping->clipping->id]) !!}
 @else
-    {!! Form::open(['url' => 'clipping/salvar']) !!}
+    {!! Form::open(['url' => 'clipping/salvar', 'target' => '_blank']) !!}
 @endif
 
 {!! Form::input('text', 'clipping.autor',  isset($clipping) ? $clipping->clipping->autor : null, ['class' => 'form-control', 'autofocus', 'placeholder' => 'Nome do Autor', 'required' => 'true', 'maxlength'=> 255]) !!}
@@ -77,7 +77,7 @@
 <hr>
 
 <h3 class="display1 text-center">
-    {!! Form::label('orientacao', 'Legislações') !!}
+    {!! Form::label('orientacao', 'Deliberações') !!}
 </h3>
 {!! Form::textarea('clipping.legislacao', isset($clipping) ? $clipping->legislacoes->texto : null, ['class' => 'form-control', 'id' => 'legislacao-editor', 'required' => 'true']) !!}
 
@@ -135,8 +135,9 @@
 
 <div class="form-row mb-2">
     <div class="col">
-        {!! Form::submit('Salvar', ['class' =>'form-control btn-success']) !!}
+        {!! Form::submit('Salvar', ['class' =>'form-control btn-success', 'value' => '']) !!}
+    </div>
+    <div class="col">
+        <button class="form-control btn btn-primary" type="submit" name="action" formaction="{{url('clipping/visualizar')}}"  formnovalidate>Visualizar</button>
     </div>
 </div>
-
-{!! Form::close() !!}

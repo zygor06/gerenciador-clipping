@@ -131,11 +131,27 @@ class NoticiaController extends Controller
         $link = new Links();
         $link->titulo = $r->titulo;
         $link->link = $r->link;
+        $link->tipo = $r->tipo == "def" ? "defesa" : "segurança";
         $link->data = $r->data;
         $link->save();
 
         return Redirect::to('repositorio');
 
+    }
+
+    public function deletar_links_publicados(){
+        $noticias = Noticia::all();
+        $links = Links::all();
+
+        foreach ($noticias as $noticia){
+            foreach ($links as $link){
+                if($noticia->link == $link->link){
+                    $link->delete();
+                }
+            }
+        }
+
+        return Redirect::to('repositorio');
     }
 
 }

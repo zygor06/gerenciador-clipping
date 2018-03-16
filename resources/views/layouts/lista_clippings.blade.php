@@ -12,13 +12,13 @@
 
                 <a href="{{url('clipping/criar')}}" class="btn btn-primary float-right mb-3">Adicionar +</a>
 
-                <table class="table table-bordered text-right">
+                <table class="table table-bordered table-sm text-right">
                     <thead class="thead-inverse">
                     <tr>
-                        <th class="text-right">Número</th>
+                        <th class="text-center">Número</th>
                         <th class="text-center">Autor</th>
-                        <th class="text-right">Ano</th>
-                        <th class="text-right">Data de Criação</th>
+                        <th class="text-center">Ano</th>
+                        <th class="text-center">Data de Criação</th>
                         <th></th>
                         <th></th>
                         @auth
@@ -29,15 +29,21 @@
                     <tbody>
                     @foreach($clippings as $clipping)
 
-                        <tr>
-                            <th class="text-right" scope="row">{{$clipping->numero}}</th>
-                            <td class="text-center">{{$clipping->autor}}</td>
+                        <tr class="text-center">
+                            <td>{{$clipping->numero}}</td>
+                            <td>{{$clipping->autor}}</td>
                             <td>{{$clipping->ano}}</td>
                             <td>{{  date('d/m/Y', strtotime($clipping->data))  }}</td>
-                            <td class="text-center"><a target="_blank" href="{{url('clipping/view/'.$clipping->id)}}">Visualizar</a></td>
-                            <td class="text-center"><a href="{{url('clipping/edit/'.$clipping->id)}}">Editar</a></td>
+                            <td><a target="_blank" href="{{url('clipping/view/'.$clipping->id)}}">Visualizar</a></td>
+                            <td><a href="{{url('clipping/edit/'.$clipping->id)}}">Editar</a></td>
                             @auth
-                                <td class="text-center"><a href="{{url('clipping/delete/'.$clipping->id)}}">Excluir</a></td>
+                                @auth
+                                    <td class="text-center">
+                                        {!! Form::open(['method' => 'DELETE', 'url' => 'clipping/delete/'.$clipping->id, 'style' => 'display:inline;', 'class' => 'deletar']) !!}
+                                            <button type="submit" class="float-right btn btn-danger btn-sm">Excluir</button>
+                                        {!! Form::close() !!}
+                                    </td>
+                                @endauth
                             @endauth
                         </tr>
 
