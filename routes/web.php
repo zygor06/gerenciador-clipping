@@ -46,5 +46,11 @@ Route::get('orientacoes', 'Site\OrientacoesController@index');
 Route::get('orientacoes/criar', 'Site\OrientacoesController@criar');
 Route::post('orientacoes/salvar', 'Site\OrientacoesController@salvar');
 Route::delete('orientacoes/delete/{id}', 'Site\OrientacoesController@deletar');
+Route::get('orientacoes/edit/{id}', 'Site\OrientacoesController@editar');
+Route::get('orientacoes/verificar', 'Site\OrientacoesController@verificar');
+Route::patch('orientacoes/{id}', 'Site\OrientacoesController@update');
+Route::get('orientacoes/novaNorma/{id}', 'Site\OrientacoesController@nova_norma');
+Route::post('norma/salvar', 'Site\OrientacoesController@salvar_norma');
+
 
 

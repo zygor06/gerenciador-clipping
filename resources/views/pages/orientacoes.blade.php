@@ -15,7 +15,7 @@
 
                     <div class="card-block">
 
-                        <a href="{{url('orientacoes/atualizar_publicadas')}}" class="btn btn-success mb-3">Adicionar orientações publicadas</a>
+                        <a href="{{url('orientacoes/verificar')}}" class="btn btn-success mb-3">Adicionar orientações publicadas</a>
                         <a href="{{url('orientacoes/criar')}}" class="btn btn-primary float-right mb-3">Adicionar +</a>
 
                         <table class="table table-sm">
