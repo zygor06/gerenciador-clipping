@@ -22,8 +22,8 @@
                                     <label for="inputState">Categoria</label>
                                     <select name="tipo" id="inputState" class="form-control">
                                         <option selected>Escolher...</option>
-                                        <option>Segurança Pública</option>
-                                        <option>Defesa Nacional</option>
+                                        <option value="seg">Segurança Pública</option>
+                                        <option value="def">Defesa Nacional</option>
                                     </select>
                                 </div>
                             </div>

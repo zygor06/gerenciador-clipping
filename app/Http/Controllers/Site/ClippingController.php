@@ -219,7 +219,6 @@ class ClippingController extends Controller
         $clipping->clipping->autor = $request->clipping_autor;
         $clipping->clipping->numero = $request->clipping_numero;
         $clipping->clipping->ano = $request->clipping_ano;
-        $clipping->clipping->data = now();
 
         $clipping->clipping->update();
 

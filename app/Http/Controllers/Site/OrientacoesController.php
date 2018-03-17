@@ -98,7 +98,7 @@ class OrientacoesController extends Controller
         $orientacoes_publicadas = OrientacoesRascunho::all();
 
         foreach ($orientacoes as $orientacao){
-            $dom->loadHTML($orientacao->texto);
+            $dom->loadHTML('<?xml encoding="utf-8" ?>' . $orientacao->texto);
             $links = $dom->getElementsByTagName('a');
 
             $cont = 0;
@@ -118,7 +118,7 @@ class OrientacoesController extends Controller
                     $or = new OrientacoesRascunho();
                     $or->titulo = $link->nodeValue;
                     $or->link = $link->getAttribute('href');
-                    $or->tipo = 11;
+                    $or->tipo = 1;
                     $or->status = 0;
                     $or->clipping_id = $orientacao->clipping_id;
                     $or->save();

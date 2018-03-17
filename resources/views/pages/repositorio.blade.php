@@ -35,16 +35,16 @@
 
                                 @php
                                     if($link->tipo == 'defesa'){
-                                        $cor = '#B3F5C2';
-                                        $cor_texto = '#006D18';
+                                        $cor = '#DAEEC0';
+                                        $cor_texto = '#54732C';
                                     }else{
-                                        $cor = '#B6CDF0';
-                                        $cor_texto = '#174F9C';
+                                        $cor = '#D4EBF6';
+                                        $cor_texto = '#397A99';
                                     }
                                 @endphp
 
                                 <tr style="background-color: {{$cor}};">
-                                    <th scope="row"><a style="color:{{$cor_texto}};" href="{{$link->link}}" target="_blank">{{$link->titulo}}</a></th>
+                                    <td class="text-left pl-4"><a style="color:{{$cor_texto}};" href="{{$link->link}}" target="_blank">{{$link->titulo}}</a></td>
                                     <td style="color:{{$cor_texto}};" class="text-center">{{  date('d/m/Y', strtotime($link->data))  }}</td>
                                     @auth
                                         <td class="text-center">
