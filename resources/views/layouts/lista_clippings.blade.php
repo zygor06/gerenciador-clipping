@@ -58,6 +58,10 @@
 
                 </table>
 
+                <div class="text-center">
+                    {!! $clippings->links() !!}
+                </div>
+
             </div>
 
         </div>

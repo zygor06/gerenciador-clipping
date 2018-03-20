@@ -15,7 +15,7 @@ class OrientacoesController extends Controller
 {
     //
     public function index(){
-        $orientacoes = DB::table('orientacoes_rascunhos')->orderBy('clipping_id')->get();
+        $orientacoes = DB::table('orientacoes_rascunhos')->orderBy('clipping_id', 'desc')->paginate(20);
         $tipos = DB::table('tipos')->get();
         $clippings = DB::table('tb_clipping')->get();
 

@@ -70,6 +70,10 @@
 
                         </table>
 
+                        <div class="text-center">
+                            {!! $orientacoes->links() !!}
+                        </div>
+
                     </div>
 
                 </div>

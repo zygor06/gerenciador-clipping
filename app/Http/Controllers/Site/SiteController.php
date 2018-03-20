@@ -11,7 +11,7 @@ class SiteController extends Controller
 {
     public function index()
     {
-        $clippings = DB::table('tb_clipping')->orderBy('numero')->get();
+        $clippings = DB::table('tb_clipping')->orderBy('numero', 'desc')->paginate(10);
         return view('pages.home', ['clippings' => $clippings]);
 
     }

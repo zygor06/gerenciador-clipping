@@ -22,7 +22,7 @@ class ClippingController extends Controller
     }
 
     public function clipping(){
-        $clippings = DB::table('tb_clipping')->orderBy('numero')->get();
+        $clippings = DB::table('tb_clipping')->orderBy('numero', 'desc')->paginate(10);
         return view('pages.clippings', ['clippings' => $clippings]);
     }
 
