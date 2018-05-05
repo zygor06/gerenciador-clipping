@@ -91,7 +91,6 @@
             $('textarea#noticia-editor').froalaEditor({
                 theme: 'dark',
                 zIndex: 2003,
-                charCounterMax: 240,
                 heightMin: 150,
                 heightMax: 200,
                 placeholderText: 'Digite aqui a descrição da notícia'

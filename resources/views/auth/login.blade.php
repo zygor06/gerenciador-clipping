@@ -16,6 +16,7 @@
 
                             <div class="col-md-6">
                                 <input id="email" type="email" class="form-control" name="email" value="{{ old('email') }}" required autofocus>
+                                <br>
 
                                 @if ($errors->has('email'))
                                     <span class="help-block">
@@ -30,7 +31,7 @@
 
                             <div class="col-md-6">
                                 <input id="password" type="password" class="form-control" name="password" required>
-
+                                <br>
                                 @if ($errors->has('password'))
                                     <span class="help-block">
                                         <strong>{{ $errors->first('password') }}</strong>
@@ -51,6 +52,7 @@
 
                         <div class="form-group">
                             <div class="col-md-8 col-md-offset-4">
+                                <br>
                                 <button type="submit" class="btn btn-primary">
                                     Entrar
                                 </button>
