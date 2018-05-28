@@ -18,7 +18,7 @@
         <div class="carousel-item">
             <img src="{{asset('img/slide2.png')}}" alt="imagem" class="img-fluid d-block">
             <div class="carousel-caption d-none d-md-block">
-                <h3>Segurança Publica</h3>
+                <h3>Segurança Pública</h3>
                 <p class="lead">Mauris dictum, nulla sed placerat sodales, diam augue solluictiun dui, ut consectourur neque quam vita lorum</p>
             </div>
         </div>

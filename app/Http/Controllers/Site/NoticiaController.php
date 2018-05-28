@@ -48,7 +48,7 @@ class NoticiaController extends Controller
         //
         $termo_pesquisa = new PesquisaNoticia();
         $termo_pesquisa->texto = $request->texto;
-        $termo_pesquisa->tipo = $request->tipo ==  'Segurança Pública' ? 'seguranca' : 'defesa';
+        $termo_pesquisa->tipo = ($request->tipo ==  'seg') ? 'seguranca' : 'defesa';
         $termo_pesquisa->save();
 
         return Redirect::to('noticias');

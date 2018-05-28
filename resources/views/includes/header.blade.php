@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #2a4070;">
+<nav class="navbar navbar-expand-lg navbar-dark " style="background-color: #2a4070; border-radius:0px;!important;">
 
     <div class="container">
 
