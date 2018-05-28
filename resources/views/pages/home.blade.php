@@ -12,7 +12,9 @@
 
             <div class="col-12 text-center my-5">
 
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Fusce egestas leo non elit iaculis, sed varius magna vehicula. Morbi magna mauris, iaculis quis ultricies sed, gravida in massa.</p>
+                <p>A SecexDefesa possui a finalidade de assessorar os relatores em matéria inerente ao
+                    controle externo e oferecer subsídios técnicos para o julgamento das contas e apreciação dos demais
+                    processos relativos às unidades jurisdicionadas ao Tribunal</p>
 
             </div>
 

@@ -127,8 +127,6 @@ class ClippingController extends Controller
         $clipping->numero = isset($request->clipping_numero) ? $request->clipping_numero : "";
         $clipping->ano = isset($request->clipping_ano) ? $request->clipping_ano : "";
         $clipping->data = now();
-        echo now();
-
 
         $noticia1 = new Noticia();
         $noticia1->titulo = isset($request->clipping_noticia_titulo_1) ? $request->clipping_noticia_titulo_1 : "";

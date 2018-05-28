@@ -1,3 +1,19 @@
+@font-face {
+    font-family: Segoe UI;
+    src: url("segoeui.ttf");
+}
+
+@font-face {
+    font-family: Segoe UI Light;
+    src: url("segoeuil.ttf")
+}
+
+@font-face {
+    font-family: Calibri;
+    src: url("calibri.ttf");
+}
+
+
 #header {
     width: 21cm;
     height: 4.5cm;

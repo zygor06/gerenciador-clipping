@@ -13,8 +13,8 @@
     @php
 
         $data = $clipping['clipping']->data;
-        $dia = substr($data, -2);
-        $mes = substr($data, -5, 2);
+        $dia = substr($data, -11, 2);
+        $mes = substr($data, -14, 2);
 
         echo $dia . " de ";
 
